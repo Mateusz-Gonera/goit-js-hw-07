@@ -23,7 +23,19 @@ gallery.addEventListener("click", (event) => {
       event.preventDefault();
       if (event.target.nodeName !== "IMG") return;
 
-      event.target.getAttribute("data-source");
+      
+      const dataImg = event.target.getAttribute("data-source");
+      const instance = basicLightbox.create(`
+    <img src="${dataImg}" />
+`, {
+            onShow: (instance) => {
+            document.addEventListener("keydown", (event) => {
+                  if (event.key === "Escape") instance.close();
+            })
+      }
+});
+      instance.show();
+      
 })
 
 

@@ -19,5 +19,12 @@ const galleryItemsElement = galleryItems
       .join(" ");
 gallery.insertAdjacentHTML("afterbegin", galleryItemsElement);
 
+gallery.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (event.target.nodeName !== "IMG") return;
+
+      event.target.getAttribute("data-source");
+})
+
 
 console.log();

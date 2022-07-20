@@ -25,8 +25,9 @@ gallery.addEventListener("click", (event) => {
 
       
       const dataImg = event.target.getAttribute("data-source");
+      const altImg = event.target.getAttribute("alt");
       const instance = basicLightbox.create(`
-    <img src="${dataImg}" />
+    <img src="${dataImg}" alt="${altImg}" />
 `, {
             onShow: (instance) => {
             document.addEventListener("keydown", (event) => {
@@ -37,6 +38,3 @@ gallery.addEventListener("click", (event) => {
       instance.show();
       
 })
-
-
-console.log();
